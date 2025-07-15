@@ -1,0 +1,2 @@
+mpif90 -lfftw3 -gpu:ccall -acc:gpu -fast -Mpreprocess -Mbackslash -DFVW -r8 -DMPI -DGPUMPI -ofd3d_pt_MPI_FVW_SS dynamicsolver.f90 fd3d_deriv.f90 fd3d_init.f90 fd3d_theo.f90 waveforms.f90 inversionRS.f90 filters.for mod_pt.f90 qdyn.f90 PGAmisf.f90 mFFT_FFTW.f90
+mpif90 -lfftw3 -gpu:ccall -acc:gpu -fast -Mpreprocess -Mbackslash -DFVW -r8 -DMPI -DGPUMPI -ofd3d_pt_MPI_FVW_SS dynamicsolver.f90 fd3d_deriv.f90 fd3d_init.f90 fd3d_theo.f90 waveforms.f90 inversionRS.f90 filters.for mod_pt.f90 qdyn.f90 PGAmisf.f90 mFFT_FFTW.f90
