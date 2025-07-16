@@ -1,22 +1,38 @@
-# Running a dynamic source inversion
+# Running a Dynamic Source Inversion
 
-This repository contains the **FD3D_TSN** source code ([Premus et al., 2020](https://doi.org/10.1785/0220190374)) for running a joint coseismic and postseismic dynamic source inversion. 
-The code version is associated with the dynamic source inversion of the 2004 Parkfield, California earthquake ([Schliwa et al., 2024](https://doi.org/10.1029/2024JB029410)).
+This repository contains the **FD3D_TSN** source code for performing joint coseismic and postseismic dynamic source inversion, as described in [Premus et al., 2020](https://doi.org/10.1785/0220190374).  
+The code version included here is specifically associated with the dynamic source inversion of the 2004 Parkfield, California earthquake ([Schliwa et al., 2024](https://doi.org/10.1029/2024JB029410)).
 
 ---
 
-## Compiling the code
+## Compiling the Code
 
-The GPU-accelerated Fortran code relies on the `nvfortran` compilier.
-- `compileFVW-GPU.sh`: provides the instructions to compile the code for a single GPU
-- `compileFVW-MPI.sh`: provides the instructions to compile the code for multiple GPUs
+The GPU-accelerated Fortran code requires the **`nvfortran`** compiler (part of the NVIDIA HPC SDK).
 
-## Preparing the input files
+You can compile the code using one of the provided scripts:
 
-Example input files associated with the 2004 Parkfield earthquake are available in this repository: [Dynamic source inversion input](https://github.com/NicoSchlw/dynamic_source_inversion_input)
+- **`compileFVW-GPU.sh`**  
+  Compiles the code for execution on a single GPU.
 
-Copy all input files in the directory of the source code before starting the inversion.
+- **`compileFVW-MPI.sh`**  
+  Compiles the code for distributed execution using multiple GPUs via MPI.
 
-## Starting the dynamic source inversion
+---
 
-**`start_inversion.sh`** provides the command to run the dynamic source inversion. The number of MPI processes -1 sets the number of Markov chains of the dynamic source inversion.
+## Preparing Input Files
+
+Example input files for the 2004 Parkfield earthquake are available in this repository: [Dynamic Source Inversion Input Files](https://github.com/NicoSchlw/dynamic_source_inversion_input)
+
+> **Note:** Copy all input files into the same directory as the compiled source code before running the inversion.
+
+---
+
+## Running the Dynamic Source Inversion
+
+Use the provided script to launch the inversion:
+
+- **`start_inversion.sh`**  
+
+> The number of MPI processes specified (minus one) determines the number of parallel Markov chains used in the inversion.
+
+---
